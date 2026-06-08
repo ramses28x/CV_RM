@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV - Ramses Ramirez Mena</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0a0a0a;
+    color: #e2ddd4;
+    padding: 2.5rem 1.5rem;
+    min-height: 100vh;
+  }
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #111;
+    border: 1px solid #222;
+  }
+
+  /* HEADER */
+  .hd {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    padding: 3rem 3.5rem 2rem;
+    border-bottom: 1px solid #2a2a2a;
+    gap: 2rem;
+  }
+  .hd-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #f0ece2;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+  }
+  .hd-role {
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-top: 0.7rem;
+    font-weight: 500;
+  }
+  .hd-contact { text-align: right; }
+  .hd-contact p { font-size: 0.78rem; color: #666; line-height: 2.1; }
+  .hd-contact p span { color: #c9a96e; margin-right: 5px; }
+
+  /* BODY */
+  .body { display: grid; grid-template-columns: 210px 1fr; }
+
+  /* SIDEBAR */
+  .sb {
+    padding: 2.5rem 1.8rem 2.5rem 3rem;
+    border-right: 1px solid #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+  }
+  .sb-title {
+    font-size: 0.6rem;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    font-weight: 500;
+    margin-bottom: 0.9rem;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #222;
+  }
+
+  .sk { margin-bottom: 0.75rem; }
+  .sk-name { font-size: 0.75rem; color: #ccc; margin-bottom: 4px; }
+  .sk-track { height: 2px; background: #1e1e1e; }
+  .sk-fill { height: 100%; background: #c9a96e; }
+
+  .tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    letter-spacing: 0.8px;
+    color: #555;
+    border: 1px solid #222;
+    padding: 2px 7px;
+    margin: 2px 1px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  .lang-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #191919; }
+  .lang-row:last-child { border-bottom: none; }
+  .lang-name { font-size: 0.75rem; color: #ccc; }
+  .lang-lvl { font-size: 0.62rem; letter-spacing: 1px; color: #444; }
+
+  .soft { font-size: 0.73rem; color: #555; padding: 5px 0; border-bottom: 1px solid #191919; }
+  .soft:last-child { border-bottom: none; }
+
+  /* MAIN */
+  .main {
+    padding: 2.5rem 3rem 2.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+  }
+  .sec-title {
+    font-size: 0.6rem;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    font-weight: 500;
+    margin-bottom: 0.9rem;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #222;
+  }
+
+  .profile-text { font-size: 0.81rem; color: #777; line-height: 1.85; }
+
+  .entry { margin-bottom: 1.4rem; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-hd { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+  .entry-title { font-size: 0.86rem; font-weight: 500; color: #e8e4dc; }
+  .entry-date { font-size: 0.65rem; color: #444; letter-spacing: 1px; white-space: nowrap; margin-left: 1rem; }
+  .entry-sub { font-size: 0.7rem; color: #c9a96e; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.45rem; }
+  .entry-body { font-size: 0.78rem; color: #666; line-height: 1.75; }
+  .entry-body li { padding-left: 14px; position: relative; margin-bottom: 3px; }
+  .entry-body li::before { content: '–'; position: absolute; left: 0; color: #333; }
+
+  /* CERT */
+  .cert-wrap { display: flex; flex-direction: column; gap: 1.6rem; }
+  .cert-group-title {
+    font-size: 0.6rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .cert-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 6px 0;
+    border-bottom: 1px solid #191919;
+  }
+  .cert-row:last-child { border-bottom: none; }
+  .cert-name { font-size: 0.78rem; color: #bbb; line-height: 1.5; }
+  .cert-org { font-size: 0.67rem; color: #444; margin-top: 2px; }
+  .cert-date { font-size: 0.65rem; color: #3d3d3d; white-space: nowrap; letter-spacing: 0.5px; }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid #1e1e1e;
+    padding: 1.4rem 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-label { font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: #333; }
+  .footer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.68rem;
+    color: #c9a96e;
+    text-decoration: none;
+    border: 1px solid #c9a96e44;
+    padding: 7px 16px;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: background 0.18s;
+  }
+  .footer-btn:hover { background: #c9a96e12; }
+  .footer-btn svg { width: 13px; height: 13px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hd">
+    <div>
+      <div class="hd-name">Ramses Ramirez<br>Mena</div>
+      <div class="hd-role">Ingeniería de Software con IA</div>
+    </div>
+    <div class="hd-contact">
+      <p><span>✉</span>ramsesramirezmena34@gmail.com</p>
+      <p><span>✆</span>941 914 912</p>
+      <p><span>⌖</span>Perú</p>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- SIDEBAR -->
+    <div class="sb">
+
+      <div>
+        <div class="sb-title">Habilidades</div>
+        <div class="sk"><div class="sk-name">Python</div><div class="sk-track"><div class="sk-fill" style="width:80%"></div></div></div>
+        <div class="sk"><div class="sk-name">Machine Learning</div><div class="sk-track"><div class="sk-fill" style="width:72%"></div></div></div>
+        <div class="sk"><div class="sk-name">Desarrollo Web</div><div class="sk-track"><div class="sk-fill" style="width:75%"></div></div></div>
+        <div class="sk"><div class="sk-name">Bases de datos SQL</div><div class="sk-track"><div class="sk-fill" style="width:70%"></div></div></div>
+        <div class="sk"><div class="sk-name">Git / Versiones</div><div class="sk-track"><div class="sk-fill" style="width:78%"></div></div></div>
+        <div class="sk"><div class="sk-name">Ciberseguridad</div><div class="sk-track"><div class="sk-fill" style="width:65%"></div></div></div>
+        <div class="sk"><div class="sk-name">Diseño Gráfico</div><div class="sk-track"><div class="sk-fill" style="width:70%"></div></div></div>
+        <div class="sk"><div class="sk-name">Soporte Técnico</div><div class="sk-track"><div class="sk-fill" style="width:73%"></div></div></div>
+      </div>
+
+      <div>
+        <div class="sb-title">Herramientas</div>
+        <span class="tag">TensorFlow</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">Docker</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Jupyter</span>
+        <span class="tag">Photoshop</span>
+        <span class="tag">Illustrator</span>
+        <span class="tag">InDesign</span>
+        <span class="tag">Corel Draw</span>
+        <span class="tag">Office 365</span>
+        <span class="tag">Linux / RHEL</span>
+        <span class="tag">Cisco</span>
+      </div>
+
+      <div>
+        <div class="sb-title">Idiomas</div>
+        <div class="lang-row"><span class="lang-name">Español</span><span class="lang-lvl">NATIVO</span></div>
+        <div class="lang-row"><span class="lang-name">Inglés</span><span class="lang-lvl">BÁSICO</span></div>
+      </div>
+
+      <div>
+        <div class="sb-title">Competencias</div>
+        <div class="soft">Trabajo en equipo</div>
+        <div class="soft">Resolución de problemas</div>
+        <div class="soft">Pensamiento analítico</div>
+        <div class="soft">Aprendizaje continuo</div>
+        <div class="soft">Comunicación efectiva</div>
+        <div class="soft">Habilidades socioemocionales</div>
+        <div class="soft">Emprendimiento</div>
+      </div>
+
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <div>
+        <div class="sec-title">Perfil profesional</div>
+        <p class="profile-text">Estudiante de Ingeniería de Software con Inteligencia Artificial en SENATI, con formación en desarrollo de software, ciberseguridad, diseño digital y administración de sistemas Linux. Perfil versátil respaldado por certificaciones en tecnologías Cisco, Red Hat y Adobe, además de programas universitarios con PETROPERÚ. Proactivo y orientado a resultados.</p>
+      </div>
+
+      <div>
+        <div class="sec-title">Formación académica</div>
+        <div class="entry">
+          <div class="entry-hd">
+            <div class="entry-title">Ingeniería de Software con Inteligencia Artificial</div>
+            <div class="entry-date">EN CURSO</div>
+          </div>
+          <div class="entry-sub">SENATI — Perú</div>
+          <p class="entry-body">Programa técnico-profesional con enfoque en desarrollo de software, modelos de inteligencia artificial y aplicaciones tecnológicas orientadas a la industria.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-title">Experiencia</div>
+        <div class="entry">
+          <div class="entry-hd">
+            <div class="entry-title">Practicante Preprofesional</div>
+            <div class="entry-date">2024 – 2025</div>
+          </div>
+          <div class="entry-sub">Prácticas — Ingeniería de Software con IA</div>
+          <ul class="entry-body">
+            <li>Desarrollo y mantenimiento de aplicaciones de software bajo supervisión profesional.</li>
+            <li>Aplicación de modelos de IA y algoritmos de aprendizaje automático en proyectos reales.</li>
+            <li>Colaboración en equipo con metodologías ágiles y control de versiones.</li>
+            <li>Análisis, diseño e implementación de soluciones tecnológicas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-title">Certificaciones y capacitaciones</div>
+        <div class="cert-wrap">
+
+          <div>
+            <div class="cert-group-title">Tecnologías de la Información y Ciberseguridad</div>
+            <div class="cert-row">
+              <div><div class="cert-name">Red Hat System Administration (RH124)</div><div class="cert-org">SENATI CFP Talara</div></div>
+              <div class="cert-date">May 2024</div>
+            </div>
+            <div class="cert-row">
+              <div><div class="cert-name">Soporte Técnico Remoto de Computadoras</div><div class="cert-org">Programa de Alfabetización Digital</div></div>
+              <div class="cert-date">Ago – Sep 2024</div>
+            </div>
+            <div class="cert-row">
+              <div><div class="cert-name">Introducción a la Seguridad Cibernética</div><div class="cert-org">Cisco Networking Academy / SENATI</div></div>
+              <div class="cert-date">Dic 2023</div>
+            </div>
+            <div class="cert-row">
+              <div><div class="cert-name">Introducción a la IoT</div><div class="cert-org">Cisco Networking Academy / SENATI</div></div>
+              <div class="cert-date">Dic 2023</div>
+            </div>
+            <div class="cert-row">
+              <div><div class="cert-name">Programa de Actualización de Ofimática 365</div><div class="cert-org">SKILL Centro de Capacitaciones</div></div>
+              <div class="cert-date">Abr – May 2023</div>
+            </div>
+            <div class="cert-row">
+              <div><div class="cert-name">Computación e Informática</div><div class="cert-org">Casa Educativa Técnica de Apoyo Social</div></div>
+              <div class="cert-date">Ago – Dic 2022</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="cert-group-title">Diseño Digital y Multimedia</div>
+            <div class="cert-row">
+              <div><div class="cert-name">Adobe Photoshop · Illustrator · InDesign · Corel Draw</div><div class="cert-org">Programa de Alfabetización Digital</div></div>
+              <div class="cert-date">Jun – Jul 2024</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="cert-group-title">Certificaciones Modulares — Estructuras Metálicas</div>
+            <div class="cert-row"><div><div class="cert-name">Trazado, Corte y Mecanizado de Perfiles y Tubos para Construcciones Metálicas</div></div></div>
+            <div class="cert-row"><div><div class="cert-name">Fabricación, Montaje o Reparación de Construcciones Metálicas (unión por soldadura)</div></div></div>
+            <div class="cert-row"><div><div class="cert-name">Montaje de Elementos y Subconjuntos de Construcciones Metálicas</div></div></div>
+          </div>
+
+          <div>
+            <div class="cert-group-title">Seguridad, Gestión Ambiental y Desarrollo Personal</div>
+            <div class="cert-row">
+              <div><div class="cert-name">Inspecciones Internas de Seguridad y Salud en el Trabajo</div><div class="cert-org">Centro de Altos Estudios para la Calidad y Gestión Ambiental</div></div>
+              <div class="cert-date">Nov 2024</div>
+            </div>
+            <div class="cert-row">
+              <div><div class="cert-name">Plan de Respuesta ante Emergencias</div><div class="cert-org">Centro de Altos Estudios para la Calidad y Gestión Ambiental</div></div>
+              <div class="cert-date">Dic 2024</div>
+            </div>
+            <div class="cert-row">
+              <div><div class="cert-name">Habilidades Socioemocionales y Técnicos Digitales STEM — Módulo II (120 h)</div><div class="cert-org">Universidad Marcelino Champagnat / PETROPERÚ S.A.</div></div>
+              <div class="cert-date">Mar – Abr 2022</div>
+            </div>
+            <div class="cert-row">
+              <div><div class="cert-name">Habilidades para el Desarrollo de Emprendimientos Económicos — Módulo II (120 h)</div><div class="cert-org">Universidad Marcelino Champagnat / PETROPERÚ S.A.</div></div>
+              <div class="cert-date">Ene – Feb 2022</div>
+            </div>
+            <div class="cert-row">
+              <div><div class="cert-name">Habilidades para la Empleabilidad — Módulo I (120 h)</div><div class="cert-org">Universidad Marcelino Champagnat / PETROPERÚ S.A.</div></div>
+              <div class="cert-date">Sep – Dic 2021</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="cert-group-title">Seminarios y Conferencias</div>
+            <div class="cert-row">
+              <div><div class="cert-name">Experiencias de éxito sobre carreras vinculadas a las disciplinas STEM</div><div class="cert-org">Consorcio UMCH y The Learning Factor / PETROPERÚ S.A.</div></div>
+              <div class="cert-date">Abr 2022</div>
+            </div>
+            <div class="cert-row">
+              <div><div class="cert-name">Desarrollo de habilidades socioemocionales vinculadas a las disciplinas STEM</div><div class="cert-org">Consorcio UMCH y The Learning Factor / PETROPERÚ S.A.</div></div>
+              <div class="cert-date">Mar 2022</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-label">Ver documentos originales</div>
+    <a class="footer-btn" href="https://drive.google.com/drive/folders/1WhfS4KpGTPjMt8u3UncTyHfiMFUi0vqD?usp=drive_link" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <line x1="12" y1="18" x2="12" y2="12"/>
+        <line x1="9" y1="15" x2="15" y2="15"/>
+      </svg>
+      Ver certificados
+    </a>
+  </div>
+
+</div>
+</body>
+</html>
